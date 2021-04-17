@@ -19,7 +19,6 @@
             zoomOffset: -1,
             accessToken: 'pk.eyJ1IjoiY2xvd2VyIiwiYSI6ImNrbmF2anliYTB4b24ycHBkMXQ3amVyM3gifQ.IkTSxTiHW8UkWQb-VRDzSQ'
         }).addTo(leafletMap);
-        let marker = null
         // Création de marker
         geoData.forEach((data) => {
             L

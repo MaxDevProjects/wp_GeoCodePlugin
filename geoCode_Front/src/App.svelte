@@ -3,6 +3,8 @@
 	import axios from "axios";
 	import Notification from "./components/Notification.svelte";
 	import Map from "./components/Map.svelte";
+	import Onglets from "./components/Onglets.svelte";
+	import {onMount} from "svelte";
 
 	let name = "", number = "", type = "", address = "", cp = "", city = "", country = "", lon = "", lat = ""
 	const types = ['rue', 'boulevard', 'impasse']
@@ -53,6 +55,8 @@
 </script>
 
 <main>
+	<Onglets/>
+<div class="main">
 	<form method="post">
 		<div class="grid">
 			{#if notifySuccess}
@@ -83,6 +87,7 @@
 		</div>
 	</form>
 	<Map/>
+</div>
 </main>
 
 
@@ -92,6 +97,9 @@
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
+	}
+
+	.main {
 		display: grid;
 		grid-template-columns: auto 1fr;
 		position: relative;

@@ -1,8 +1,8 @@
 <script>
-    export let datas = null
-    let getPositionXY = (data) => {
-        let x = data.latitude
-        let y = data.longitude
+    export let datas = null, x = null, y = null
+
+    export let getXY = () => {
+        return {x, y}
     }
 </script>
 
@@ -26,13 +26,20 @@ ul > li:hover {
     cursor: pointer;
 }
 </style>
-
+<!--
 <div>
     {#if datas}
     <ul>
         {#each datas as data}
-            <li on:click={getPositionXY(data)}>{data.nom}</li>
+            <li on:click={
+            () => {
+                x = data.latitude
+                y = data.longitude
+                //console.log({x, y})
+                }
+                }>{data.nom}</li>
         {/each}
     </ul>
     {/if}
 </div>
+-->
