@@ -1,5 +1,8 @@
 <script>
-    let current = 1
+    import Form from "./Form.svelte";
+    import List from "./List.svelte";
+
+    let current = 2
 
 </script>
 
@@ -22,7 +25,14 @@
 
 <div>
     <ul>
-        <li on:click={() => current = 1} class="{current === 1 ? 'selected' : ''}">Gestion des données</li>
-        <li  on:click={() => current = 2} class="{current === 2 ? 'selected' : ''}">Clés API</li>
+        <li  on:click={() => current = 1} class="{current === 1 ? 'selected' : ''}">Formulaire</li>
+        <li on:click={() => current = 2} class="{current === 2 ? 'selected' : ''}">Gestion des données</li>
+        <!--<li  on:click={() => current = 3} class="{current === 3 ? 'selected' : ''}">Clés API</li>-->
     </ul>
+    {#if current === 1}
+    <Form/>
+    {/if}
+    {#if current === 2}
+    <List/>
+    {/if}
 </div>

@@ -22,6 +22,8 @@ class GeoCode
         if (!defined('ABSPATH')) {
             define('ABSPATH', dirname(__FILE__) . '/');
         }
+        add_action('rest_api_inti', [$this, 'reqisterEndpoints']);
+        //$this->$data = include_once("model/GetAllData.php");
         $this->hooks();
     }
 
@@ -112,6 +114,24 @@ class GeoCode
                     break;
             }
         }, 10, 3);
+    }
+
+    function readDataList() {
+
+    }
+
+    function reqisterEndpoints() {
+        foreach(['data-list' => $data] as $route => $callback) {
+            register_rest_route(
+            'geo/v1',
+            $route,
+            [
+            'methods' => 'GET',
+            'callback' => [$this, $callback],
+            'permission_callback' => [$this, 'allowDeny']
+            ]
+            );
+        }
     }
 };
 include_once 'model/CreateGeoDb.php';

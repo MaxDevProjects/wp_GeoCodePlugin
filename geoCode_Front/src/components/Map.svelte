@@ -23,7 +23,7 @@
         geoData.forEach((data) => {
             L
                 .marker([data.latitude, data.longitude]).addTo(leafletMap)
-                .bindPopup(`<b>${data.nom}</b><br>${data.numero} ${data.type} ${data.adresse}<br>${data.codepostal} ${data.ville}`).openPopup();
+                .bindPopup(`<b>${data.nom}</b><br>${data.adresse}<br>${data.codepostal} ${data.ville}`).openPopup();
         })
     })
 </script>
@@ -31,13 +31,13 @@
 <style>
 #leafletMap {
     margin: auto;
-    width: 80%;
+    width: 100%;
     height: 100%;
     position: relative;
+    min-height: 250px;
 }
+
 </style>
 
-
-<List datas="{geoData}"/>
 <div id="leafletMap">
 </div>
